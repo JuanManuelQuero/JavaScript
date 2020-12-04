@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <div>
+        <p id="texto">Este texto va a cambiar de color al pasar el ratón por encima.</p>
+    </div>
+
+    <div>
+        <button id="boton1" onclick="controlarClick()">Boton 1</button>
+        <button id="boton2" onclick="controlarClick()">Boton 2</button>
+    </div>
+
+    <script>
+        document.getElementById("texto").addEventListener("mouseover", cambiarColor);
+        document.getElementById("texto").addEventListener("mouseout", cambiarColor);
+
+        
+
+        function cambiarColor(e) {
+            if (!e) e = window.event;
+
+            switch (e.type) {
+                case "mouseover":
+                    this.style.color = "red";
+                    break;
+                case "mouseout":
+                    this.style.color = "black";
+                    break;
+            }
+        }
+
+        function controlarClick(e) {
+            if (!e) e = window.event;
+
+            if(e.target.id == "boton1") {
+                document.write("Has pulsado el boton 1.");
+            }else if(e.target.id == "boton2") {
+                document.write("Has pulsado el boton 2.");
+            }
+        }
+    </script>
+</body>
+
+</html>

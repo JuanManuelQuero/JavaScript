@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <p>
+      No comas ajos ni cebollas, porque no saquen por el olor tu villanería. Anda despacio; habla con resposo; pero no
+      de manera que parezca que te escuchas a ti mismo; que toda afectación es mala. Come poco y cena más poco; que la
+      salud de todo el cuerpo se fragua en la oficina del estómago. Sé templado en el beber, considerando que el vino
+      demasiado ni guarda secreto, ni cumple palabra. Ten cuenta, Sancho, de no mascar a
+      dos carrillos, ni de erutar delante de nadie.
+   </p>
+   </br>
+   <p>
+      La libertad, Sancho, es uno de los más preciosos dones que a los hombres dieron los cielos; con ella no pueden
+      igualarse los tesoros que encierra la tierra ni el mar encubre; por la libertad, así como por la honra se puede y
+      debe aventurar la vida, y, por el contrario, el cautiverio es el mayor mal que puede venir a los hombres
+   </p>
+</body>
+
+<script>
+   document.body.onload = anadirEnlace;
+
+   function anadirEnlace() {
+      let newHref = document.createElement("a");
+      let newContenido = document.createTextNode("https://wpd.ugr.es/~agamizv/?p=4");
+      newHref.appendChild(newContenido);
+
+      let añadir = document.getElementsByTagName("p");
+      document.body.insertBefore(newHref, añadir[2]);
+   }
+
+   function contarPalabras() {
+
+      let palabras = document.getElementsByTagName("p");
+      var cont = 0;
+
+      for (var i = 0; i < palabras.length; i++) {
+         cont += palabras[i].innerHTML.split(' ').length;
+      }
+
+      document.write("Total de palabras: " + cont + "<br>");
+   }
+   contarPalabras();
+</script>
+
+</html>

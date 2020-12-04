@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <div id="norte">
+        <h2>Galicia</h2>
+        <ul id="lista">
+            <li>A Coruña</li>
+            <li>Lugo</li>
+            <li>Ourense</li>
+            <li>Pontevedra</li>
+        </ul>
+    </div>
+    <div id="sur">
+        <h2>Canarias</h2>
+        <ul id="lista">
+            <li>Santa Cruz de Tenerife</li>
+            <li>Las Palmas</li>
+        </ul>
+    </div>
+    <div id="texto"></div>
+
+</body>
+
+<script>
+    window.onload = iniciar;
+
+    function iniciar() {
+        let texto = document.createElement("ul");
+        texto.id = "mensaje";
+        document.body.appendChild(texto);
+
+        let provincias = document.getElementsByTagName("h2");
+
+        for (var i = 0; i < provincias.length; i++) {
+            provincias[i].addEventListener("click", info);
+        }
+    };
+
+    function info() {
+        let cadena = document.getElementById("mensaje");
+        cadena.innerHTML = "";
+
+        let ubicacion = this.parentNode.id;
+        let totalProvincias = this.nextElementSibling.children.length;
+
+        let resultado = "Has elegido " + this.textContent + " que está situada en el " + ubicacion + "<br>" +
+            "El número de provincias es " + totalProvincias + ": ";
+        for (i = 0; i < totalProvincias; i++) {
+            resultado += this.nextElementSibling.children[i].textContent + " ";
+        }
+
+        cadena.innerHTML = resultado;
+    }
+</script>
+
+</html>
